@@ -1,0 +1,145 @@
+/* Importamos una fuente retro estilo 80s / Terminal */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* Normalización de la paleta de colores para todo el proyecto */
+:root {
+  --vw-bg: #1a0b2e;
+  --vw-text: #e0e6ed;
+  --vw-pink: #ff71ce;
+  --vw-cyan: #01cdfe;
+  --vw-purple: #b967ff;
+  --vw-green: #05ffa1;
+  --vw-yellow: #fffb96;
+  
+  /* Sombras predefinidas para efecto Neón */
+  --glow-pink: 0 0 5px #ff71ce, 0 0 10px #ff71ce, 0 0 20px #ff71ce;
+  --glow-cyan: 0 0 5px #01cdfe, 0 0 10px #01cdfe, 0 0 20px #01cdfe;
+}
+
+/* Reset básico y configuración del cuerpo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--vw-bg);
+  color: var(--vw-text);
+  font-family: 'VT323', monospace; /* Fuente retro */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* Tipografía de Títulos (con resplandor rosa) */
+h1, h2, h3, h4 {
+  color: var(--vw-pink);
+  text-shadow: var(--glow-pink);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; color: var(--vw-cyan); text-shadow: var(--glow-cyan); }
+
+/* Párrafos y texto normal */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Enlaces (Cian que cambia a Amarillo al pasar el ratón) */
+a {
+  color: var(--vw-cyan);
+  text-decoration: none;
+  text-shadow: 0 0 2px var(--vw-cyan);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--vw-yellow);
+  text-shadow: 0 0 8px var(--vw-yellow);
+}
+
+/* Líneas separadoras (hr) */
+hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--vw-purple);
+  box-shadow: 0 0 10px var(--vw-purple);
+  margin: 2rem 0;
+}
+
+/* Botones estandarizados */
+button {
+  background-color: transparent;
+  color: var(--vw-pink);
+  border: 2px solid var(--vw-pink);
+  box-shadow: 0 0 5px var(--vw-pink), inset 0 0 5px var(--vw-pink);
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--vw-pink);
+  color: var(--vw-bg);
+  box-shadow: var(--glow-pink);
+}
+
+/* Cuadros de texto o inputs */
+input, textarea {
+  background-color: rgba(26, 11, 46, 0.8);
+  border: 1px solid var(--vw-cyan);
+  color: var(--vw-cyan);
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--vw-cyan);
+}
+
+/* Scrollbar personalizada para navegadores webkit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vw-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vw-purple);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vw-pink);
+}
+/* Configuramos el fondo de la barra usando la variable oscura de nuestra paleta */
+.vapor-nav {
+    background-color: var(--vw-bg) !important; 
+    border-bottom: 2px solid var(--vw-purple);
+    box-shadow: 0 0 15px var(--vw-purple);
+}
+
+/* Aplicamos la fuente y el color a todos los enlaces de la navegación */
+.vapor-nav .nav-link {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--vw-purple) !important;
+    font-size: 0.8rem; /* Ajusta el tamaño porque esta fuente suele ser grande */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+/* Efecto hover estilo Vaporwave al pasar el ratón */
+.vapor-nav .nav-link:hover,
+.vapor-nav .nav-link.active {
+    color: var(--vw-cyan) !important;
+    text-shadow: var(--glow-cyan);
+}
