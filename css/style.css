@@ -1,7 +1,7 @@
-/* Importamos una fuente retro estilo 80s / Terminal */
+
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* Normalización de la paleta de colores para todo el proyecto */
+
 :root {
   --vw-bg: #1a0b2e;
   --vw-text: #e0e6ed;
@@ -11,12 +11,12 @@
   --vw-green: #05ffa1;
   --vw-yellow: #fffb96;
   
-  /* Sombras predefinidas para efecto Neón */
+
   --glow-pink: 0 0 5px #ff71ce, 0 0 10px #ff71ce, 0 0 20px #ff71ce;
   --glow-cyan: 0 0 5px #01cdfe, 0 0 10px #01cdfe, 0 0 20px #01cdfe;
 }
 
-/* Reset básico y configuración del cuerpo */
+
 * {
   box-sizing: border-box;
   margin: 0;
