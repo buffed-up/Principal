@@ -1,0 +1,173 @@
+.carrusel-principal {
+    max-width: 900px;
+    margin: 40px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(185, 103, 255, 0.3), 0 8px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(1, 205, 254, 0.2);
+}
+
+.carrusel-principal .carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.carrusel-principal .caption-steam {
+    position: absolute;
+    bottom: 0;               
+    left: 0;                 
+    right: 0;                
+    
+    background: rgba(0, 0, 0, 0.75) !important;
+    padding: 20px 28px;
+    
+ 
+    border-radius: 0;
+    border-left: none;
+    
+    width: 100%;             
+    max-width: none;         
+    
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.6); 
+    transition: all 0.3s ease;
+}
+
+.carrusel-principal .titulo-juego {
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.1rem;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    margin: 0 0 8px 0;
+}
+
+.carrusel-principal .subtitulo-juego {
+    color: #01cdfe;
+    font-size: 0.9rem;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+    margin: 0 0 10px 0;
+}
+
+.carrusel-principal .badge-juego {
+    display: inline-block;
+    padding: 6px 16px;
+    margin: 5px 0 0 0;
+    background: #01cdfe;
+    color: #1a0b2e;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
+}
+
+
+.carrusel-principal .carousel-control-prev,
+.carrusel-principal .carousel-control-next {
+    background: rgba(255, 113, 206, 0.25) !important;
+    border: 2px solid #01cdfe !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 20px rgba(1, 205, 254, 0.2), inset 0 0 20px rgba(255, 113, 206, 0.1) !important;
+    width: 50px !important;
+    height: 50px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    opacity: 0.9 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.carrusel-principal .carousel-control-prev {
+    left: 15px !important;
+}
+
+.carrusel-principal .carousel-control-next {
+    right: 15px !important;
+}
+
+.carrusel-principal .carousel-control-prev-icon,
+.carrusel-principal .carousel-control-next-icon {
+    filter: drop-shadow(0 0 5px #01cdfe) !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.carrusel-principal .carousel-control-prev:hover,
+.carrusel-principal .carousel-control-next:hover {
+    background: rgba(255, 113, 206, 0.5) !important;
+    border-color: #ff71ce !important;
+    box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), inset 0 0 30px rgba(255, 113, 206, 0.2) !important;
+    transform: translateY(-50%) scale(1.1) !important;
+    opacity: 1 !important;
+}
+
+
+.carrusel-principal .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #01cdfe;
+    background: transparent;
+    margin: 0 6px;
+}
+
+.carrusel-principal .carousel-indicators .active {
+    background: #01cdfe;
+    box-shadow: 0 0 15px #01cdfe;
+}
+
+
+@media (max-width: 576px) {
+    .carrusel-principal {
+        max-width: 100%;
+        margin: 20px 10px;
+        border-radius: 10px;
+    }
+
+    .carrusel-principal .carousel-item img {
+        height: 180px;
+    }
+
+    .carrusel-principal .caption-steam {
+        padding: 10px 14px;
+       
+    }
+
+    .carrusel-principal .titulo-juego {
+        font-size: 0.6rem;
+    }
+
+    .carrusel-principal .subtitulo-juego {
+        font-size: 0.5rem;
+    }
+
+    .carrusel-principal .badge-juego {
+        padding: 3px 10px;
+        font-size: 0.45rem;
+    }
+
+    .carrusel-principal .carousel-control-prev,
+    .carrusel-principal .carousel-control-next {
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 4px !important;
+        border-width: 1px !important;
+    }
+
+    .carrusel-principal .carousel-control-prev {
+        left: 5px !important;
+    }
+
+    .carrusel-principal .carousel-control-next {
+        right: 5px !important;
+    }
+
+    .carrusel-principal .carousel-control-prev-icon,
+    .carrusel-principal .carousel-control-next-icon {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
