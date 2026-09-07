@@ -7,7 +7,7 @@
   --vw-pink: #ff71ce;
   --vw-cyan: #01cdfe;
   --vw-purple: #b967ff;
-  --vw-green: #05ffa1;
+  --vw-green: #05ffa1;  
   --vw-yellow: #fffb96;
   
 
@@ -439,4 +439,133 @@ input:focus, textarea:focus {
         font-size: 1.2rem;
         margin: 0 6px;
     }
+}
+
+/* ============================================================
+   TARJETAS DE PRODUCTOS (VAPORWAVE)
+   ============================================================ */
+
+.vapor-card {
+    background-color: rgba(26, 11, 46, 0.85) !important; /* Fondo oscuro transparente */
+    border: 2px solid var(--vw-purple);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(185, 103, 255, 0.2);
+    transition: all 0.3s ease;
+    font-family: 'VT323', monospace;
+}
+
+.vapor-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--vw-cyan);
+    box-shadow: 0 0 25px rgba(1, 205, 254, 0.4);
+}
+
+/* Imagen del producto */
+.vapor-img {
+    border-bottom: 2px solid var(--vw-purple);
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Título del producto */
+.vapor-title {
+    color: var(--vw-pink);
+    text-shadow: 0 0 5px var(--vw-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Precio */
+.vapor-price {
+    color: var(--vw-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(5, 255, 161, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Botón Añadir */
+.btn-vapor {
+    background-color: transparent;
+    color: var(--vw-pink);
+    border: 2px solid var(--vw-pink);
+    box-shadow: 0 0 5px var(--vw-pink), inset 0 0 5px var(--vw-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-vapor:hover {
+    background-color: var(--vw-pink);
+    color: var(--vw-bg);
+    box-shadow: 0 0 15px var(--vw-pink);
+    border-color: var(--vw-pink);
+}
+
+/* ============================================================
+   PESTAÑAS (TABS) ESTILO NAVBAR VAPORWAVE
+   ============================================================ */
+.btn-vapor-tab {
+    background-color: var(--vw-bg) !important; /* Fondo morado oscuro como el navbar */
+    color: var(--vw-purple) !important; /* Texto púrpura como el navbar */
+    border: 2px solid var(--vw-purple) !important;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    margin: 0 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-vapor-tab:hover {
+    background-color: var(--vw-bg) !important; /* Mantiene el fondo oscuro */
+    color: var(--vw-cyan) !important; /* Texto cian al pasar el mouse */
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan); /* Efecto de brillo neón cian */
+    box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
+}
+
+.btn-vapor-tab.active {
+    background-color: var(--vw-bg) !important; /* Fondo oscuro, como navbar */
+    color: var(--vw-cyan) !important; /* Texto cian brillante (estado activo) */
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan); /* Brillo neón */
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
+}
+
+/* ============================================================
+   TÍTULO DE PÁGINA ESTILO CAJA NEÓN (CENTRADO)
+   ============================================================ */
+.titulo-caja-vapor {
+    background-color: var(--vw-bg) !important; /* Fondo morado oscuro sólido */
+    color: var(--vw-purple) !important; /* Texto púrpura */
+    border: 2px solid var(--vw-purple) !important;
+    padding: 15px 40px !important;
+    letter-spacing: 2px;
+    
+    /* ESTO LO HACE CENTRADO Y QUE OCUPE SOLO EL ANCHO DEL TEXTO */
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Estilo Vaporwave */
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--vw-cyan), 0 0 20px var(--vw-cyan);
+    box-shadow: 0 0 10px rgba(185, 103, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover (cuando pasas el mouse) */
+.titulo-caja-vapor:hover {
+    color: var(--vw-cyan) !important;
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan);
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
 }
