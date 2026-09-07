@@ -605,3 +605,13 @@ input:focus, textarea:focus {
   flex-direction: column;
   margin-top: 11vh;
 }
+.vapor-img {
+    border-bottom: 2px solid var(--vw-purple);
+    width: 100%;
+    height: 220px; /* Altura de la tarjeta */
+    object-fit: contain; /* <-- CLAVE: Muestra la imagen COMPLETA */
+    background-color: #000;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px;
+}

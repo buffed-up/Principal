@@ -4,49 +4,49 @@
 const productos = [
     { id: 1, titulo: "Cosplay Dio", precio: "$15.990", img: "img/dio.jpg", categoria: "cosplay" },
     { id: 2, titulo: "Figura Yujiro Hanma", precio: "$70.990", img: "img/hanma.jpg", categoria: "coleccionables" },
-    { id: 3, titulo: "Figura Satoru Gojo", precio: "$7.990", img: "img/gojo.jpg", categoria: "coleccionables" },
+    { id: 3, titulo: "Figura Satoru Gojo", precio: "$60.990", img: "img/gojo.jpg", categoria: "coleccionables" },
     { id: 4, titulo: "Colección Jujutsu Kaisen", precio: "$49.990", img: "img/kaisen.jpg", categoria: "cosplay" },
-    { id: 5, titulo: "Cosplay Bill", precio: "$20.990", img: "img/bill.jpg" , categoria: "cosplay" },
+    { id: 5, titulo: "Cosplay Bill", precio: "$20.990", img: "img/bill.jpg", categoria: "cosplay" },
     { id: 6, titulo: "Colección Team Fortress 2", precio: "$30.990", img: "img/tf2.jpg", categoria: "cosplay" },
     { id: 7, titulo: "Colección Destiny", precio: "$89.990", img: "img/destiny.png", categoria: "coleccionables" },
     { id: 8, titulo: "Colección Warhammer 40k", precio: "$80.990", img: "img/ultra.png", categoria: "coleccionables" }
 ];
 
 // ============================================================
-// 2. ARTÍCULOS DENTRO DE CADA COLECCIÓN
+// 2. ARTÍCULOS DENTRO DE CADA COLECCIÓN (CON SUS PROPIOS IDs Y PRECIOS CORREGIDOS)
 // ============================================================
 const articulosDeColecciones = {
-    4: [
-        { titulo: "Cosplay Gojo", precio: "$25.990", img: "img/gojo cosplay.png" },
-        { titulo: "Cosplay Itadori", precio: "$39.990", img: "img/kaisen.jpg" },
-        { titulo: "Cosplay Mahito", precio: "$5.990", img: "img/mahito.jpeg" }
+    4: [ // Colección Jujutsu Kaisen
+        { id: 101, titulo: "Cosplay Gojo", precio: "$25.990", img: "img/gojo cosplay.png" },
+        { id: 102, titulo: "Cosplay Itadori", precio: "$25.990", img: "img/kaisen.jpg" },
+        { id: 103, titulo: "Cosplay Mahito", precio: "$20.990", img: "img/mahito.jpeg" }
     ],
-
-    6: [
-        { titulo: "Cosplay Heavy", precio: "$30.990", img: "img/tf2.jpg" },
-        { titulo: "Cosplay spy", precio: "$30.990", img: "img/tf2.jpg" },
-        { titulo: "Cosplay Scout", precio: "$28.990", img: "img/logo.png" }
+    6: [ // Colección Team Fortress 2
+        { id: 104, titulo: "Cosplay Heavy", precio: "$30.990", img: "img/heavy.jpg" },
+        { id: 105, titulo: "Cosplay spy", precio: "$30.990", img: "img/spy.jpg"},
+        { id: 106, titulo: "Cosplay Scout", precio: "$28.990", img: "img/scout.jpg" }
     ],
-    7: [
-        { titulo: "Prop As de picas", precio: "$200.990", img: "img/as de picas.jpg" },
-        { titulo: "Prop mitoclasta vex", precio: "$380.990", img: "img/vex.png" },
-        { titulo: "figura espectro", precio: "$90.990", img: "img/espectro.jpg" }
+    7: [ // Colección Destiny
+        { id: 107, titulo: "Prop As de picas", precio: "$200.990", img: "img/as de picas.jpg" },
+        { id: 108, titulo: "Prop mitoclasta vex", precio: "$380.990", img: "img/vex.png" },
+        { id: 109, titulo: "Figura espectro", precio: "$90.990", img: "img/espectro.jpg" }
     ],
-    8: [
-        { titulo: "figura ultramarine", precio: "$250.990", img: "img/ultra.png" },
-        { titulo: "figura dreadnought", precio: "$180.990", img: "img/dreadnought.png" },
-        { titulo: "figura orco", precio: "$150.990", img: "img/orco.png" }
+    8: [ // Colección Warhammer 40k
+        { id: 110, titulo: "Figuras grupo ultramarine", precio: "$400.990", img: "img/ultra.png" },
+        { id: 111, titulo: "Figura dreadnought", precio: "$180.990", img: "img/dreadnought.png" },
+        { id: 112, titulo: "Figura orco", precio: "$150.990", img: "img/orco.png" }
     ]
 };
 
+// ============================================================
+// 3. LÓGICA DE RENDERIZADO
+// ============================================================
 const contenedor = document.getElementById('contenedor-productos');
 let categoriaActual = 'todos';
 
 function renderizarProductos(categoria = 'todos') {
     categoriaActual = categoria;
     contenedor.innerHTML = '';
-
-    // Mostrar las pestañas
     document.getElementById('filtros-categorias').classList.remove('d-none');
 
     const productosFiltrados = categoria === 'todos' 
@@ -58,15 +58,16 @@ function renderizarProductos(categoria = 'todos') {
         
         const tarjetaHTML = `
             <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card vapor-card h-100 text-center">
+                <div class="card vapor-card h-100 text-center" style="cursor: pointer;" 
+                     onclick="${esColeccion ? `abrirColeccion(${producto.id})` : `window.location.href='producto-detalle.html?id=${producto.id}'`}">
                     <img src="${producto.img}" class="card-img-top vapor-img" alt="${producto.titulo}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title vapor-title">${producto.titulo}</h5>
                         <p class="card-text vapor-price mt-auto">${producto.precio}</p>
                         
                         ${esColeccion 
-                            ? `<button class="btn btn-vapor mt-2" onclick="abrirColeccion(${producto.id})">Ver Colección</button>` 
-                            : `<button class="btn btn-vapor mt-2">Añadir</button>`
+                            ? `<button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); abrirColeccion(${producto.id})">Ver Colección</button>` 
+                            : `<button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${producto.id}'">Ver Detalle</button>`
                         }
                     </div>
                 </div>
@@ -81,12 +82,9 @@ function filtrarProductos(categoria) {
 }
 
 function abrirColeccion(idColeccion) {
-    // OCULTAR LAS PESTAÑAS usando la clase d-none de Bootstrap
     document.getElementById('filtros-categorias').classList.add('d-none');
-
     const articulos = articulosDeColecciones[idColeccion] || [];
     const nombreColeccion = productos.find(p => p.id === idColeccion)?.titulo || "Colección";
-
     document.getElementById('titulo-seccion').innerText = nombreColeccion;
     const btnVolver = document.getElementById('btn-volver');
     btnVolver.style.display = 'inline-block';
@@ -95,12 +93,12 @@ function abrirColeccion(idColeccion) {
     articulos.forEach(articulo => {
         const tarjetaHTML = `
             <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card vapor-card h-100 text-center">
+                <div class="card vapor-card h-100 text-center" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=${articulo.id}'">
                     <img src="${articulo.img}" class="card-img-top vapor-img" alt="${articulo.titulo}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title vapor-title">${articulo.titulo}</h5>
                         <p class="card-text vapor-price mt-auto">${articulo.precio}</p>
-                        <button class="btn btn-vapor mt-2">Añadir</button>
+                        <button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${articulo.id}'">Ver Detalle</button>
                     </div>
                 </div>
             </div>
@@ -110,9 +108,7 @@ function abrirColeccion(idColeccion) {
 }
 
 function volverAColecciones() {
-    // VOLVER A MOSTRAR LAS PESTAÑAS
     document.getElementById('filtros-categorias').classList.remove('d-none');
-
     document.getElementById('titulo-seccion').innerText = "PRODUCTOS";
     document.getElementById('btn-volver').style.display = 'none';
     renderizarProductos(categoriaActual);
