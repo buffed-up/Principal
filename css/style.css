@@ -569,3 +569,39 @@ input:focus, textarea:focus {
     text-shadow: 0 0 8px var(--vw-cyan);
     box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
 }
+
+.login-wrapper {
+  display: flex;
+  min-height: 86vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+  box-sizing: border-box;
+  padding: 0%;
+}
+
+.titulo-login {
+  margin-top: 3vh;
+  color: var(--vw-pink);
+  text-shadow: var(--glow-pink);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.contenedor{
+  border-style: double;
+  border-color: var(--vw-pink);
+  box-shadow: var(--glow-pink);
+  display: flex;
+  min-height: 55vh;
+  min-width: 53vh;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 11vh;
+}
