@@ -39,7 +39,14 @@ const articulosDeColecciones = {
 };
 
 // ============================================================
-// 3. FUNCIONES DE LA PÁGINA DE DETALLE
+// 3. FUNCIÓN PARA LIMPIAR PRECIO (Para que el carrito pueda sumar)
+// ============================================================
+function limpiarPrecio(precioTexto) {
+    return parseInt(precioTexto.replace(/[$.]/g, '').replace(/\s/g, ''));
+}
+
+// ============================================================
+// 4. FUNCIONES DE LA PÁGINA DE DETALLE
 // ============================================================
 function obtenerIdDeURL() {
     const params = new URLSearchParams(window.location.search);
@@ -77,6 +84,12 @@ function renderizarDetalle() {
     document.getElementById('nombre-producto').innerText = producto.titulo;
     document.getElementById('precio-producto').innerText = producto.precio;
     document.getElementById('descripcion-producto').innerText = producto.descripcion;
+
+    // AGREGAR AL CARRITO: Asignar la función al botón (respeta la cantidad del input)
+    document.getElementById('boton-anadir').onclick = function() {
+        const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
+        agregarAlCarrito(producto.id, producto.titulo, limpiarPrecio(producto.precio), producto.img, cantidad);
+    };
 }
 
 // Ejecutar al cargar

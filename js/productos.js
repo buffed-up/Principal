@@ -5,15 +5,15 @@ const productos = [
     { id: 1, titulo: "Cosplay Dio", precio: "$15.990", img: "img/dio.jpg", categoria: "cosplay" },
     { id: 2, titulo: "Figura Yujiro Hanma", precio: "$70.990", img: "img/hanma.jpg", categoria: "coleccionables" },
     { id: 3, titulo: "Figura Satoru Gojo", precio: "$60.990", img: "img/gojo.jpg", categoria: "coleccionables" },
-    { id: 4, titulo: "Colección Jujutsu Kaisen", precio: "$49.990", img: "img/kaisen.jpg", categoria: "cosplay" },
+    { id: 4, titulo: "Colección Jujutsu Kaisen", precio: "$49.990", img: "img/kaisen.jpg", categoria: "cosplay", esColeccion: true },
     { id: 5, titulo: "Cosplay Bill", precio: "$20.990", img: "img/bill.jpg", categoria: "cosplay" },
-    { id: 6, titulo: "Colección Team Fortress 2", precio: "$30.990", img: "img/tf2.jpg", categoria: "cosplay" },
-    { id: 7, titulo: "Colección Destiny", precio: "$89.990", img: "img/destiny.png", categoria: "coleccionables" },
-    { id: 8, titulo: "Colección Warhammer 40k", precio: "$80.990", img: "img/ultra.png", categoria: "coleccionables" }
+    { id: 6, titulo: "Colección Team Fortress 2", precio: "$30.990", img: "img/tf2.jpg", categoria: "cosplay", esColeccion: true },
+    { id: 7, titulo: "Colección Destiny", precio: "$89.990", img: "img/destiny.png", categoria: "coleccionables", esColeccion: true },
+    { id: 8, titulo: "Colección Warhammer 40k", precio: "$80.990", img: "img/ultra.png", categoria: "coleccionables", esColeccion: true }
 ];
 
 // ============================================================
-// 2. ARTÍCULOS DENTRO DE CADA COLECCIÓN (CON SUS PROPIOS IDs Y PRECIOS CORREGIDOS)
+// 2. ARTÍCULOS DENTRO DE CADA COLECCIÓN (CON SUS PROPIOS IDs)
 // ============================================================
 const articulosDeColecciones = {
     4: [ // Colección Jujutsu Kaisen
@@ -39,10 +39,19 @@ const articulosDeColecciones = {
 };
 
 // ============================================================
-// 3. LÓGICA DE RENDERIZADO
+// 3. FUNCIÓN PARA LIMPIAR PRECIO (Para que el carrito pueda sumar)
+// ============================================================
+function limpiarPrecio(precioTexto) {
+    // Quita "$", "." y espacios, y convierte a número entero
+    return parseInt(precioTexto.replace(/[$.]/g, '').replace(/\s/g, ''));
+}
+
+// ============================================================
+// 4. LÓGICA DE RENDERIZADO
 // ============================================================
 const contenedor = document.getElementById('contenedor-productos');
 let categoriaActual = 'todos';
+let vieneDeIndex = false; // Variable para saber si venimos del menú principal
 
 function renderizarProductos(categoria = 'todos') {
     categoriaActual = categoria;
@@ -54,7 +63,7 @@ function renderizarProductos(categoria = 'todos') {
         : productos.filter(producto => producto.categoria === categoria);
 
     productosFiltrados.forEach(producto => {
-        const esColeccion = producto.titulo.toLowerCase().includes("colección") || producto.titulo.toLowerCase().includes("coleccion");
+        const esColeccion = producto.esColeccion === true;
         
         const tarjetaHTML = `
             <div class="col-6 col-md-4 col-lg-3 mb-4">
@@ -67,7 +76,7 @@ function renderizarProductos(categoria = 'todos') {
                         
                         ${esColeccion 
                             ? `<button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); abrirColeccion(${producto.id})">Ver Colección</button>` 
-                            : `<button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${producto.id}'">Ver Detalle</button>`
+                            : `<button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); agregarAlCarrito(${producto.id}, '${producto.titulo}', ${limpiarPrecio(producto.precio)}, '${producto.img}'); window.location.href='producto-detalle.html?id=${producto.id}'">Ver Detalle</button>`
                         }
                     </div>
                 </div>
@@ -98,7 +107,7 @@ function abrirColeccion(idColeccion) {
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title vapor-title">${articulo.titulo}</h5>
                         <p class="card-text vapor-price mt-auto">${articulo.precio}</p>
-                        <button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${articulo.id}'">Ver Detalle</button>
+                        <button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); agregarAlCarrito(${articulo.id}, '${articulo.titulo}', ${limpiarPrecio(articulo.precio)}, '${articulo.img}'); window.location.href='producto-detalle.html?id=${articulo.id}'">Ver Detalle</button>
                     </div>
                 </div>
             </div>
@@ -111,8 +120,36 @@ function volverAColecciones() {
     document.getElementById('filtros-categorias').classList.remove('d-none');
     document.getElementById('titulo-seccion').innerText = "PRODUCTOS";
     document.getElementById('btn-volver').style.display = 'none';
-    renderizarProductos(categoriaActual);
+    
+    // Si venimos del index, volvemos al index. Si no, a la lista de productos
+    if (vieneDeIndex) {
+        window.location.href = 'index.html';
+    } else {
+        renderizarProductos(categoriaActual);
+    }
 }
 
-// Carga inicial
-document.addEventListener('DOMContentLoaded', () => renderizarProductos('todos'));
+// ============================================================
+// 5. FUNCIÓN PARA ABRIR COLECCIÓN DESDE LA URL (Index)
+// ============================================================
+function abrirColeccionDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    const idColeccion = parseInt(params.get('coleccion'));
+    const desdeIndex = params.get('desde'); // Detecta si viene del index
+    
+    // Guardamos si venimos del index
+    if (desdeIndex === 'index') {
+        vieneDeIndex = true;
+    }
+    
+    // Si hay un ID de colección en la URL, la abrimos automáticamente
+    if (idColeccion) {
+        abrirColeccion(idColeccion);
+    }
+}
+
+// Carga inicial (mostrar todos y verificar si viene de la tabla del index)
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarProductos('todos');
+    abrirColeccionDesdeURL(); // <-- Esto abre la colección si viene del index
+});
