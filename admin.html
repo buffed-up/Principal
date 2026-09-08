@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Buffed Up!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================== -->
+    <!-- BARRA DE NAVEGACIÓN -->
+    <!-- ========================================== -->
+
+    <nav class="navbar navbar-expand-lg vapor-nav" data-bs-theme="dark">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="admin.html">
+
+                <img
+                    src="img/logo.png"
+                    alt="Logo"
+                    height="64"
+                    width="64">
+
+                <span> ADMIN PANEL</span>
+
+            </a>
+
+
+            <div class="d-flex">
+
+                <button
+                    id="btnCerrarSesion"
+                    class="btn btn-outline-danger">
+
+                    Cerrar Sesión
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ========================================== -->
+    <!-- PANEL PRINCIPAL -->
+    <!-- ========================================== -->
+
+    <div class="container mt-5">
+
+        <h1
+            class="text-center mb-5"
+            style="color: white;">
+
+            PANEL DE ADMINISTRADOR
+
+        </h1>
+
+
+        <div class="row justify-content-center gap-4">
+
+
+            <!-- ========================================== -->
+            <!-- PRODUCTOS -->
+            <!-- ========================================== -->
+
+            <div class="col-md-5">
+
+                <div
+                    class="card vapor-card p-4 h-100 text-center"
+                    style="background-color: #2b2b2b; color: white;">
+
+                    <h2 class="mb-4">
+                        PRODUCTO
+                    </h2>
+
+
+                    <div class="d-grid gap-3">
+
+                        <a
+                            href="admin-nuevo-producto.html"
+                            class="btn btn-success btn-lg">
+
+                            NUEVO PRODUCTO
+
+                        </a>
+
+
+                        <a
+                            href="admin-mostrar-producto.html"
+                            class="btn btn-info btn-lg">
+
+                            MOSTRAR PRODUCTO
+
+                        </a>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-warning btn-lg"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditarProducto">
+
+                            EDITAR PRODUCTO
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================== -->
+            <!-- USUARIOS -->
+            <!-- ========================================== -->
+
+            <div class="col-md-5">
+
+                <div
+                    class="card vapor-card p-4 h-100 text-center"
+                    style="background-color: #2b2b2b; color: white;">
+
+                    <h2 class="mb-4">
+                        USUARIO
+                    </h2>
+
+
+                    <div class="d-grid gap-3">
+
+                        <a
+                            href="admin-nuevo-usuario.html"
+                            class="btn btn-success btn-lg">
+
+                            NUEVO USUARIO
+
+                        </a>
+
+
+                        <a
+                            href="admin-mostrar-usuario.html"
+                            class="btn btn-info btn-lg">
+
+                            MOSTRAR USUARIO
+
+                        </a>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-warning btn-lg"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditarUsuario">
+
+                            EDITAR USUARIO
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL EDITAR PRODUCTO -->
+    <!-- ========================================== -->
+
+    <div
+        class="modal fade"
+        id="modalEditarProducto"
+        tabindex="-1"
+        aria-hidden="true"
+        data-bs-theme="dark">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div
+                class="modal-content"
+                style="background-color: #2b2b2b; color: white;">
+
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-warning">
+                        Seleccionar Producto a Editar
+                    </h5>
+
+
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body">
+
+                    <label
+                        for="selectProductoEditar"
+                        class="form-label">
+
+                        Elige un producto de tu inventario:
+
+                    </label>
+
+
+                    <select
+                        class="form-select"
+                        id="selectProductoEditar">
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-footer border-secondary">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        id="btnIrAEditar">
+
+                        Ir a Editar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL EDITAR USUARIO -->
+    <!-- ========================================== -->
+
+    <div
+        class="modal fade"
+        id="modalEditarUsuario"
+        tabindex="-1"
+        aria-hidden="true"
+        data-bs-theme="dark">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div
+                class="modal-content"
+                style="background-color: #2b2b2b; color: white;">
+
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-warning">
+                        Seleccionar Usuario a Editar
+                    </h5>
+
+
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body">
+
+                    <label
+                        for="selectUsuarioEditar"
+                        class="form-label">
+
+                        Elige un usuario:
+
+                    </label>
+
+
+                    <select
+                        class="form-select"
+                        id="selectUsuarioEditar">
+
+                        <option
+                            value=""
+                            disabled
+                            selected>
+
+                            Selecciona un usuario...
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-footer border-secondary">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        id="btnIrAEditarUsuario">
+
+                        Ir a Editar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- BOOTSTRAP -->
+    <!-- ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL PRODUCTOS -->
+    <!-- ========================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const selectProducto =
+                document.getElementById("selectProductoEditar");
+
+            const btnIrAEditar =
+                document.getElementById("btnIrAEditar");
+
+            const modalEditar =
+                document.getElementById("modalEditarProducto");
+
+
+            if (modalEditar) {
+
+                modalEditar.addEventListener(
+                    "show.bs.modal",
+                    function() {
+
+                        selectProducto.innerHTML = `
+                            <option value="" disabled selected>
+                                Selecciona un producto...
+                            </option>
+                        `;
+
+
+                        const listaProductos =
+                            JSON.parse(
+                                localStorage.getItem("productosDb")
+                            ) || [];
+
+
+                        listaProductos.forEach(function(producto) {
+
+                            selectProducto.innerHTML += `
+                                <option value="${producto.id}">
+                                    [ID: ${producto.id}]
+                                    ${producto.titulo}
+                                </option>
+                            `;
+
+                        });
+
+                    }
+                );
+
+            }
+
+
+            if (btnIrAEditar) {
+
+                btnIrAEditar.addEventListener(
+                    "click",
+                    function() {
+
+                        const idSeleccionado =
+                            selectProducto.value;
+
+
+                        if (!idSeleccionado) {
+
+                            alert(
+                                "Por favor, selecciona un producto de la lista."
+                            );
+
+                            return;
+                        }
+
+
+                        sessionStorage.setItem(
+                            "productoAEditar",
+                            idSeleccionado
+                        );
+
+
+                        window.location.href =
+                            "admin-editar-producto.html";
+
+                    }
+                );
+
+            }
+
+        });
+
+    </script>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL USUARIOS -->
+    <!-- ========================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const selectUsuario =
+                document.getElementById("selectUsuarioEditar");
+
+            const btnIrAEditarUsuario =
+                document.getElementById("btnIrAEditarUsuario");
+
+            const modalEditarUsuario =
+                document.getElementById("modalEditarUsuario");
+
+
+            // Cargar usuarios cuando se abre el modal
+            if (modalEditarUsuario) {
+
+                modalEditarUsuario.addEventListener(
+                    "show.bs.modal",
+                    function() {
+
+                        selectUsuario.innerHTML = `
+                            <option value="" disabled selected>
+                                Selecciona un usuario...
+                            </option>
+                        `;
+
+
+                        const listaUsuarios =
+                            JSON.parse(
+                                localStorage.getItem("usuariosDb")
+                            ) || [];
+
+
+                        listaUsuarios.forEach(function(usuario) {
+
+                            selectUsuario.innerHTML += `
+                                <option value="${usuario.id}">
+                                    [ID: ${usuario.id}]
+                                    ${usuario.nombre}
+                                    ${usuario.apellido}
+                                    - ${usuario.correo}
+                                </option>
+                            `;
+
+                        });
+
+                    }
+                );
+
+            }
+
+
+            // Ir al formulario de edición
+            if (btnIrAEditarUsuario) {
+
+                btnIrAEditarUsuario.addEventListener(
+                    "click",
+                    function() {
+
+                        const idSeleccionado =
+                            selectUsuario.value;
+
+
+                        if (!idSeleccionado) {
+
+                            alert(
+                                "Por favor, selecciona un usuario de la lista."
+                            );
+
+                            return;
+                        }
+
+
+                        // Guardar ID seleccionado
+                        sessionStorage.setItem(
+                            "usuarioAEditar",
+                            idSeleccionado
+                        );
+
+
+                        // Ir al formulario
+                        window.location.href =
+                            "admin-editar-usuario.html";
+
+                    }
+                );
+
+            }
+
+        });
+
+    </script>
+
+    <script src="js/admin-proteccion.js"></script>
+
+</body>
+
+</html>
