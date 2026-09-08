@@ -595,6 +595,7 @@ input:focus, textarea:focus {
   text-transform: uppercase;
 }
 .contenedor{
+  background-image: url(login.jpeg);
   border-style: double;
   border-color: var(--vw-pink);
   box-shadow: var(--glow-pink);
@@ -604,6 +605,22 @@ input:focus, textarea:focus {
   align-items: center;
   flex-direction: column;
   margin-top: 11vh;
+  background-size: cover;
+}
+.fondo-editar-producto {
+    background-image: url('login.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 3rem; 
+}
+.titulo-fondo-negro {
+    background-color: rgba(0, 0, 0, 0.7); /* El 0.7 es la transparencia al 70% */
+    border-radius: 10px;       
+    padding: 5px 15px;         
+    display: inline-block;
+    color: aliceblue;     
 }
 .vapor-img {
     border-bottom: 2px solid var(--vw-purple);
