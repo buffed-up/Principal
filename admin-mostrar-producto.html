@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Productos - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark text-white">
+    <!-- Navbar simplificado -->
+    <nav class="navbar navbar-expand-lg vapor-nav bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admin.html">⬅ VOLVER AL PANEL</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">INVENTARIO DE PRODUCTOS</h1>
+        
+        <div class="d-flex justify-content-end mb-3">
+            <a href="admin-nuevo-producto.html" class="btn btn-success">+ Nuevo Producto</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-hover table-bordered text-center align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Imagen</th>
+                        <th>Título</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-productos">
+                    <!-- Los productos se cargarán aquí desde JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/admin-productos.js"></script>
+</body>
+</html>
