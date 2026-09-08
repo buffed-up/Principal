@@ -57,6 +57,48 @@ function cambiarImagen(src) {
     document.getElementById('imagen-principal').src = src;
 }
 
+// ============================================================
+// 5. EASTER EGG: TANK DE LEFT 4 DEAD (CORREGIDO)
+// ============================================================
+let clicsTank = 0;
+
+function activarEasterEggTank() {
+    const overlay = document.getElementById('easter-egg-tank');
+    const img = overlay.querySelector('.easter-egg-img-tank');
+    
+    // Obtener los audios con los IDs CORRECTOS
+    const audioMusica = document.getElementById('audio-tank');
+    const audioGrunidos = document.getElementById('audio-grunidos-tank');
+    
+    // 1. REINICIAR LA ANIMACIÓN (para que aparezca cada vez)
+    overlay.style.display = 'block';
+    img.style.animation = 'none';
+    img.offsetHeight; // Truco para reiniciar
+    img.style.animation = ''; // Vuelve a ejecutar la animación
+    
+    // 2. REPRODUCIR AMBOS AUDIOS
+    if (audioMusica) {
+        audioMusica.currentTime = 0;
+        audioMusica.play();
+    }
+    if (audioGrunidos) {
+        audioGrunidos.currentTime = 0;
+        audioGrunidos.play();
+    }
+    
+    // 3. OCULTAR DESPUÉS DE 3 SEGUNDOS Y PAUSAR AUDIOS
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        
+        if (audioMusica) {
+            audioMusica.pause();
+        }
+        if (audioGrunidos) {
+            audioGrunidos.pause();
+        }
+    }, 3000);
+}
+
 function renderizarDetalle() {
     const id = obtenerIdDeURL();
     
@@ -90,6 +132,25 @@ function renderizarDetalle() {
         const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
         agregarAlCarrito(producto.id, producto.titulo, limpiarPrecio(producto.precio), producto.img, cantidad);
     };
+
+    // EASTER EGG: Asignar el clic SOLO al título cuando se llene
+    const titulo = document.getElementById('nombre-producto');
+    
+    // Si el producto es Cosplay Bill, ponemos el contador de clics
+    if (producto.titulo === 'Cosplay Bill') {
+        titulo.style.cursor = 'pointer'; // Para que se vea clicable
+        titulo.onclick = function() {
+            clicsTank++;
+            if (clicsTank === 5) {
+                activarEasterEggTank();
+                clicsTank = 0; // Reiniciar contador
+            }
+        };
+    } else {
+        // Para los demás productos, el título solo se ve (no es clicable)
+        titulo.style.cursor = 'default';
+        titulo.onclick = null;
+    }
 }
 
 // Ejecutar al cargar

@@ -632,3 +632,41 @@ input:focus, textarea:focus {
     border-top-right-radius: 6px;
     padding: 10px;
 }
+#easter-egg-tank {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+}
+
+/* El GIF corriendo */
+.easter-egg-img-tank {
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    width: 250px; /* Tamaño del GIF */
+    transform: translateY(-50%);
+    animation: correrTank 3s linear forwards;
+}
+
+/* Animación de izquierda a derecha */
+@keyframes correrTank {
+    0% {
+        left: -200px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100vw;
+        opacity: 0;
+    }
+}

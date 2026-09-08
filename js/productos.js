@@ -107,8 +107,7 @@ function abrirColeccion(idColeccion) {
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title vapor-title">${articulo.titulo}</h5>
                         <p class="card-text vapor-price mt-auto">${articulo.precio}</p>
-                        <button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); agregarAlCarrito(${articulo.id}, '${articulo.titulo}', ${limpiarPrecio(articulo.precio)}, '${articulo.img}'); window.location.href='producto-detalle.html?id=${articulo.id}'">Ver Detalle</button>
-                    </div>
+                       <button class="btn btn-vapor mt-2" onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${articulo.id}'">Ver Detalle</button>
                 </div>
             </div>
         `;
