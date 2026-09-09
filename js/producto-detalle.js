@@ -38,16 +38,14 @@ const articulosDeColecciones = {
     ]
 };
 
-// ============================================================
+
 // 3. FUNCIÓN PARA LIMPIAR PRECIO (Para que el carrito pueda sumar)
-// ============================================================
+
 function limpiarPrecio(precioTexto) {
     return parseInt(precioTexto.replace(/[$.]/g, '').replace(/\s/g, ''));
 }
 
-// ============================================================
-// 4. FUNCIONES DE LA PÁGINA DE DETALLE
-// ============================================================
+
 function obtenerIdDeURL() {
     const params = new URLSearchParams(window.location.search);
     return parseInt(params.get('id'));
@@ -57,9 +55,7 @@ function cambiarImagen(src) {
     document.getElementById('imagen-principal').src = src;
 }
 
-// ============================================================
-// 5. EASTER EGG: TANK DE LEFT 4 DEAD (CORREGIDO)
-// ============================================================
+
 let clicsTank = 0;
 
 function activarEasterEggTank() {
@@ -73,7 +69,7 @@ function activarEasterEggTank() {
     // 1. REINICIAR LA ANIMACIÓN (para que aparezca cada vez)
     overlay.style.display = 'block';
     img.style.animation = 'none';
-    img.offsetHeight; // Truco para reiniciar
+    img.offsetHeight; 
     img.style.animation = ''; // Vuelve a ejecutar la animación
     
     // 2. REPRODUCIR AMBOS AUDIOS
@@ -127,16 +123,16 @@ function renderizarDetalle() {
     document.getElementById('precio-producto').innerText = producto.precio;
     document.getElementById('descripcion-producto').innerText = producto.descripcion;
 
-    // AGREGAR AL CARRITO: Asignar la función al botón (respeta la cantidad del input)
+    // AGREGAR AL CARRITO: Asignar la función al boton
     document.getElementById('boton-anadir').onclick = function() {
         const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
         agregarAlCarrito(producto.id, producto.titulo, limpiarPrecio(producto.precio), producto.img, cantidad);
     };
 
-    // EASTER EGG: Asignar el clic SOLO al título cuando se llene
+    
     const titulo = document.getElementById('nombre-producto');
     
-    // Si el producto es Cosplay Bill, ponemos el contador de clics
+    
     if (producto.titulo === 'Cosplay Bill') {
         titulo.style.cursor = 'pointer'; // Para que se vea clicable
         titulo.onclick = function() {
@@ -147,7 +143,7 @@ function renderizarDetalle() {
             }
         };
     } else {
-        // Para los demás productos, el título solo se ve (no es clicable)
+        
         titulo.style.cursor = 'default';
         titulo.onclick = null;
     }
