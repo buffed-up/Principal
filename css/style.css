@@ -670,3 +670,37 @@ input:focus, textarea:focus {
         opacity: 0;
     }
 }
+
+/*======
+tarjeta
+======== */
+.card {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.card-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #0d0d11 !important;
+    color: #ffffff !important;
+    padding: 1.5rem !important;
+    z-index: 100 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    
+    /* Despliegue de arriba a abajo */
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-overlay.active {
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+}
