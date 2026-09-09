@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg vapor-nav bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admin-mostrar-producto.html">⬅ VOLVER A INVENTARIO</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card vapor-card p-4 w-50 fondo-editar-producto" style="background-color: #2b2b2b;">
+            <h2 class="text-center mb-4 titulo-fondo-negro">AGREGAR PRODUCTO</h2>
+            
+            <form id="formNuevoProducto">
+                <div class="mb-3">
+                    <h3 class="titulo-fondo-negro">Título del Producto</h3>
+                    <input type="text" class="form-control" id="tituloInput" required>
+                </div>
+                <div class="mb-3">
+                    <h3 class="titulo-fondo-negro">Categoría</h3>
+                    <select class="form-select" id="categoriaInput" required>
+                        <option value="cosplay">Cosplay</option>
+                        <option value="coleccionables">Coleccionables</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <h3 class="titulo-fondo-negro">Precio (Ej: $15.990)</h3>
+                    <input type="text" class="form-control" id="precioInput" required>
+                </div>
+                <div class="mb-3">
+                    <h3 class="titulo-fondo-negro">Ruta de Imagen (Ej: img/nuevo.jpg)</h3>
+                    <input type="text" class="form-control" id="imgInput" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100 mt-3">GUARDAR PRODUCTO</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin-productos.js"></script>
+</body>
+</html>
