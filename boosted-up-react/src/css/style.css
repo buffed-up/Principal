@@ -1,0 +1,706 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+:root {
+  --vw-bg: #1a0b2e;
+  --vw-text: #e0e6ed;
+  --vw-pink: #ff71ce;
+  --vw-cyan: #01cdfe;
+  --vw-purple: #b967ff;
+  --vw-green: #05ffa1;  
+  --vw-yellow: #fffb96;
+  
+
+  --glow-pink: 0 0 5px #ff71ce, 0 0 10px #ff71ce, 0 0 20px #ff71ce;
+  --glow-cyan: 0 0 5px #01cdfe, 0 0 10px #01cdfe, 0 0 20px #01cdfe;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* ===== IMAGEN DE FONDO ===== */
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* ===== COLOR DE RESPALDO ===== */
+  background-color: var(--vw-bg);
+  
+  color: var(--vw-text);
+  font-family: 'VT323', monospace; 
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+
+h1, h2, h3, h4 {
+  color: var(--vw-pink);
+  text-shadow: var(--glow-pink);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; color: var(--vw-cyan); text-shadow: var(--glow-cyan); }
+
+p {
+  margin-bottom: 1rem;
+}
+
+
+a {
+  color: var(--vw-cyan);
+  text-decoration: none;
+  text-shadow: 0 0 2px var(--vw-cyan);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--vw-yellow);
+  text-shadow: 0 0 8px var(--vw-yellow);
+}
+
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--vw-purple);
+  box-shadow: 0 0 10px var(--vw-purple);
+  margin: 2rem 0;
+}
+
+
+button {
+  background-color: transparent;
+  color: var(--vw-pink);
+  border: 2px solid var(--vw-pink);
+  box-shadow: 0 0 5px var(--vw-pink), inset 0 0 5px var(--vw-pink);
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--vw-pink);
+  color: var(--vw-bg);
+  box-shadow: var(--glow-pink);
+}
+
+
+input, textarea {
+  background-color: rgba(26, 11, 46, 0.8);
+  border: 1px solid var(--vw-cyan);
+  color: var(--vw-cyan);
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--vw-cyan);
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vw-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vw-purple);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vw-pink);
+}
+
+.vapor-nav {
+    background-color: var(--vw-bg) !important; 
+    border-bottom: 2px solid var(--vw-purple);
+    box-shadow: 0 0 15px var(--vw-purple);
+}
+
+
+.vapor-nav .nav-link {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--vw-purple) !important;
+    font-size: 0.8rem; 
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+
+.vapor-nav .nav-link:hover,
+.vapor-nav .nav-link.active {
+    color: var(--vw-cyan) !important;
+    text-shadow: var(--glow-cyan);
+}
+
+/* ============================================================
+   TABLA ESTILO STEAM
+   ============================================================ */
+
+.tabla-vaporwave {
+    background-color: #000000 !important;
+    border: 1px solid var(--vw-purple);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(185, 103, 255, 0.2);
+    width: 100%;
+    max-width: 100%;
+}
+
+.tabla-vaporwave td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(185, 103, 255, 0.15);
+    vertical-align: middle;
+    color: var(--vw-text);
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    background-color: #000000 !important;
+}
+
+.tabla-vaporwave tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-vaporwave tbody tr:hover {
+    background-color: rgba(1, 205, 254, 0.08);
+    box-shadow: inset 0 0 20px rgba(1, 205, 254, 0.03);
+    transition: all 0.3s ease;
+}
+
+/* === IMAGEN - MÁS GRANDE === */
+.tabla-vaporwave .img-items {
+    width: 200px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(1, 205, 254, 0.15);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.tabla-vaporwave .img-items:hover {
+    transform: scale(1.03);
+    border-color: var(--vw-cyan);
+    box-shadow: 0 0 25px rgba(1, 205, 254, 0.2);
+}
+
+/* === NOMBRE DEL ITEM === */
+.tabla-vaporwave .nombre-items {
+    font-weight: bold;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* === GÉNERO / CATEGORÍA === */
+.tabla-vaporwave .genero-items {
+    font-size: 0.7rem;
+    color: var(--vw-cyan);
+    opacity: 0.7;
+    font-family: 'VT323', monospace;
+}
+
+/* === PRECIO - ESTILO STEAM === */
+.tabla-vaporwave .precio-items {
+    font-weight: bold;
+    color: var(--vw-green);
+    font-size: 1.3rem;
+    text-shadow: 0 0 15px rgba(5, 255, 161, 0.25);
+    white-space: nowrap;
+    text-align: right;
+    font-family: 'VT323', monospace;
+}
+
+/* === RANKING === */
+.tabla-vaporwave .ranking {
+    color: var(--vw-purple);
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: 0 0 10px rgba(185, 103, 255, 0.3);
+    text-align: center;
+    width: 40px;
+}
+
+/* RESPONSIVE - TABLA ESTILO STEAM */
+@media (max-width: 768px) {
+    .tabla-vaporwave td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .tabla-vaporwave .nombre-items {
+        font-size: 0.6rem;
+    }
+
+    .tabla-vaporwave .precio-items {
+        font-size: 1rem;
+    }
+
+    .tabla-vaporwave .img-items {
+        width: 120px;
+        height: 60px;
+    }
+
+    .tabla-vaporwave .genero-items {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .tabla-vaporwave td {
+        padding: 6px 6px;
+        font-size: 0.75rem;
+    }
+
+    .tabla-vaporwave .nombre-items {
+        font-size: 0.5rem;
+    }
+
+    .tabla-vaporwave .precio-items {
+        font-size: 0.8rem;
+    }
+
+    .tabla-vaporwave .img-items {
+        width: 80px;
+        height: 50px;
+    }
+
+    .tabla-vaporwave .genero-items {
+        font-size: 0.5rem;
+    }
+}
+
+
+/* ============================================================
+   FOOTER VAPORWAVE - ANCHO COMPLETO
+   ============================================================ */
+
+.footer-vapor {
+    background-color: #0a0518;
+    border-top: 2px solid var(--vw-purple);
+    box-shadow: 0 -10px 40px rgba(185, 103, 255, 0.15);
+    padding: 40px 0 20px 0;
+    margin-top: 50px;
+    font-family: 'VT323', monospace;
+
+    /* ===== ANCHO COMPLETO ===== */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* El container interior mantiene el contenido centrado */
+.footer-vapor .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-vapor .footer-titulo {
+    color: var(--vw-cyan);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    text-shadow: var(--glow-cyan);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-vapor .footer-texto {
+    color: var(--vw-text);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+.footer-vapor .footer-enlace {
+    color: var(--vw-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    line-height: 2;
+    display: block;
+}
+
+.footer-vapor .footer-enlace:hover {
+    color: var(--vw-cyan);
+    text-shadow: var(--glow-cyan);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-vapor .footer-contacto {
+    color: var(--vw-text);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    line-height: 2;
+    margin-bottom: 5px;
+}
+
+.footer-vapor .footer-contacto i {
+    color: var(--vw-cyan);
+    width: 20px;
+    margin-right: 5px;
+}
+
+.footer-vapor .footer-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--vw-purple), transparent);
+    margin: 25px 0 15px 0;
+    box-shadow: 0 0 15px rgba(185, 103, 255, 0.15);
+}
+
+.footer-vapor .footer-copy {
+    color: var(--vw-text);
+    font-size: 0.7rem;
+    opacity: 0.3;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.footer-vapor .footer-copy a {
+    color: var(--vw-purple);
+    text-decoration: none;
+    opacity: 0.4;
+}
+
+.footer-vapor .footer-copy a:hover {
+    color: var(--vw-cyan);
+    opacity: 1;
+    text-shadow: var(--glow-cyan);
+}
+
+.footer-vapor .social-icon {
+    display: inline-block;
+    color: var(--vw-purple);
+    font-size: 1.4rem;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-vapor .social-icon:hover {
+    color: var(--vw-pink);
+    text-shadow: var(--glow-pink);
+    transform: translateY(-3px);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-vapor {
+        padding: 25px 0 15px 0;
+        margin-top: 30px;
+    }
+    
+    .footer-vapor .footer-titulo {
+        font-size: 0.7rem;
+        margin-top: 15px;
+    }
+    
+    .footer-vapor .footer-texto {
+        font-size: 0.8rem;
+    }
+    
+    .footer-vapor .footer-enlace {
+        font-size: 0.75rem;
+    }
+    
+    .footer-vapor .footer-contacto {
+        font-size: 0.75rem;
+    }
+    
+    .footer-vapor .social-icon {
+        font-size: 1.2rem;
+        margin: 0 6px;
+    }
+}
+
+/* ============================================================
+   TARJETAS DE PRODUCTOS (VAPORWAVE)
+   ============================================================ */
+
+.vapor-card {
+    background-color: rgba(26, 11, 46, 0.85) !important; /* Fondo oscuro transparente */
+    border: 2px solid var(--vw-purple);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(185, 103, 255, 0.2);
+    transition: all 0.3s ease;
+    font-family: 'VT323', monospace;
+}
+
+.vapor-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--vw-cyan);
+    box-shadow: 0 0 25px rgba(1, 205, 254, 0.4);
+}
+
+/* Imagen del producto */
+.vapor-img {
+    border-bottom: 2px solid var(--vw-purple);
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Título del producto */
+.vapor-title {
+    color: var(--vw-pink);
+    text-shadow: 0 0 5px var(--vw-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Precio */
+.vapor-price {
+    color: var(--vw-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(5, 255, 161, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Botón Añadir */
+.btn-vapor {
+    background-color: transparent;
+    color: var(--vw-pink);
+    border: 2px solid var(--vw-pink);
+    box-shadow: 0 0 5px var(--vw-pink), inset 0 0 5px var(--vw-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-vapor:hover {
+    background-color: var(--vw-pink);
+    color: var(--vw-bg);
+    box-shadow: 0 0 15px var(--vw-pink);
+    border-color: var(--vw-pink);
+}
+
+/* ============================================================
+   PESTAÑAS (TABS) ESTILO NAVBAR VAPORWAVE
+   ============================================================ */
+.btn-vapor-tab {
+    background-color: var(--vw-bg) !important; /* Fondo morado oscuro como el navbar */
+    color: var(--vw-purple) !important; /* Texto púrpura como el navbar */
+    border: 2px solid var(--vw-purple) !important;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    margin: 0 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-vapor-tab:hover {
+    background-color: var(--vw-bg) !important; /* Mantiene el fondo oscuro */
+    color: var(--vw-cyan) !important; /* Texto cian al pasar el mouse */
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan); /* Efecto de brillo neón cian */
+    box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
+}
+
+.btn-vapor-tab.active {
+    background-color: var(--vw-bg) !important; /* Fondo oscuro, como navbar */
+    color: var(--vw-cyan) !important; /* Texto cian brillante (estado activo) */
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan); /* Brillo neón */
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
+}
+
+/* ============================================================
+   TÍTULO DE PÁGINA ESTILO CAJA NEÓN (CENTRADO)
+   ============================================================ */
+.titulo-caja-vapor {
+    background-color: var(--vw-bg) !important; /* Fondo morado oscuro sólido */
+    color: var(--vw-purple) !important; /* Texto púrpura */
+    border: 2px solid var(--vw-purple) !important;
+    padding: 15px 40px !important;
+    letter-spacing: 2px;
+    
+    /* ESTO LO HACE CENTRADO Y QUE OCUPE SOLO EL ANCHO DEL TEXTO */
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Estilo Vaporwave */
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--vw-cyan), 0 0 20px var(--vw-cyan);
+    box-shadow: 0 0 10px rgba(185, 103, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover (cuando pasas el mouse) */
+.titulo-caja-vapor:hover {
+    color: var(--vw-cyan) !important;
+    border-color: var(--vw-cyan) !important;
+    text-shadow: 0 0 8px var(--vw-cyan);
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.4);
+}
+
+.login-wrapper {
+  display: flex;
+  min-height: 86vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+  box-sizing: border-box;
+  padding: 0%;
+}
+
+.titulo-login {
+  margin-top: 3vh;
+  color: var(--vw-pink);
+  text-shadow: var(--glow-pink);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.contenedor{
+  background-image: url(login.jpeg);
+  border-style: double;
+  border-color: var(--vw-pink);
+  box-shadow: var(--glow-pink);
+  display: flex;
+  min-height: 55vh;
+  min-width: 53vh;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 11vh;
+  background-size: cover;
+}
+.fondo-editar-producto {
+    background-image: url('login.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 3rem; 
+}
+.titulo-fondo-negro {
+    background-color: rgba(0, 0, 0, 0.7); /* El 0.7 es la transparencia al 70% */
+    border-radius: 10px;       
+    padding: 5px 15px;         
+    display: inline-block;
+    color: aliceblue;     
+}
+.vapor-img {
+    border-bottom: 2px solid var(--vw-purple);
+    width: 100%;
+    height: 220px; /* Altura de la tarjeta */
+    object-fit: contain; /* <-- CLAVE: Muestra la imagen COMPLETA */
+    background-color: #000;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px;
+}
+#easter-egg-tank {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+}
+
+/* El GIF corriendo */
+.easter-egg-img-tank {
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    width: 250px; /* Tamaño del GIF */
+    transform: translateY(-50%);
+    animation: correrTank 3s linear forwards;
+}
+
+/* Animación de izquierda a derecha */
+@keyframes correrTank {
+    0% {
+        left: -200px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100vw;
+        opacity: 0;
+    }
+}
+
+/*======
+tarjeta
+======== */
+.card {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.card-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #0d0d11 !important;
+    color: #ffffff !important;
+    padding: 1.5rem !important;
+    z-index: 100 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    
+    /* Despliegue de arriba a abajo */
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-overlay.active {
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+}
