@@ -11,14 +11,31 @@ function ProductoCard({ producto }) {
     maximumFractionDigits: 0
   }).format(producto.precio)
 
-  const handleClick = () => {
+  const irAColeccion = () => {
+    navigate(`/productos?coleccion=${encodeURIComponent(producto.titulo.replace('Colección ', ''))}`)
+  }
+
+  const irADetalle = () => {
     navigate(`/producto/${producto.id}`)
   }
 
-  const handleBoton = (e) => {
+  // Clic en cualquier parte de la tarjeta
+  const handleClick = () => {
+    if (producto.es_portada) irAColeccion()
+    else irADetalle()
+  }
+
+  // Clic en el botón principal (Ver Detalle / Ver Colección)
+  const handleBotonPrincipal = (e) => {
+    e.stopPropagation()
+    if (producto.es_portada) irAColeccion()
+    else irADetalle()
+  }
+
+  // Clic en el botón de agregar al carrito
+  const handleBotonCarrito = (e) => {
     e.stopPropagation()
     agregarAlCarrito(producto.id, producto.titulo, producto.precio, producto.img)
-    navigate(`/producto/${producto.id}`)
   }
 
   return (
@@ -29,16 +46,26 @@ function ProductoCard({ producto }) {
         onClick={handleClick}
       >
         <img
-          src={producto.img.startsWith('http') ? producto.img : `/${producto.img}`}
+          src={`/${producto.img}`}
           className="card-img-top vapor-img"
           alt={producto.titulo}
         />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title vapor-title">{producto.titulo}</h5>
           <p className="card-text vapor-price mt-auto">{precioFormateado}</p>
-          <button className="btn btn-vapor mt-2" onClick={handleBoton}>
-            Ver Detalle
+
+          <button className="btn btn-vapor mt-2" onClick={handleBotonPrincipal}>
+            {producto.es_portada ? 'Ver Colección' : 'Ver Detalle'}
           </button>
+
+          {!producto.es_portada && (
+            <button
+              className="btn btn-success mt-2"
+              onClick={handleBotonCarrito}
+            >
+              Agregar al carrito
+            </button>
+          )}
         </div>
       </div>
     </div>

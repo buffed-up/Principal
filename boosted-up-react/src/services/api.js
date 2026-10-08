@@ -85,3 +85,21 @@ export async function login(correo, clave) {
   if (!res.ok) throw new Error('Correo o contraseña incorrectos');
   return res.json();
 }
+
+export async function getColecciones() {
+  const res = await fetch(`${BASE_URL}/productos/colecciones`);
+  if (!res.ok) throw new Error('Error al obtener colecciones');
+  return res.json();
+}
+
+export async function getDestacados() {
+  const res = await fetch(`${BASE_URL}/productos/destacados`);
+  if (!res.ok) throw new Error('Error al obtener destacados');
+  return res.json();
+}
+
+export async function getProductosPorColeccion(nombre) {
+  const res = await fetch(`${BASE_URL}/productos?coleccion=${encodeURIComponent(nombre)}`);
+  if (!res.ok) throw new Error('Error al obtener productos de la colección');
+  return res.json();
+}

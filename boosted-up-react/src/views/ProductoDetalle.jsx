@@ -39,18 +39,22 @@ function ProductoDetalle() {
       <div className="row">
         <div className="col-md-6">
           <img
-            src={producto.img.startsWith('http') ? producto.img : `/${producto.img}`}
+            src={`/${producto.img}`}
             alt={producto.titulo}
             className="img-fluid rounded"
           />
         </div>
         <div className="col-md-6">
           <h1>{producto.titulo}</h1>
-          <p className="text-capitalize text-muted">{producto.categoria}</p>
+          {producto.descripcion && (
+            <p className="text-muted">{producto.descripcion}</p>
+          )}
           <p className="fs-4 fw-bold">{precioFormateado}</p>
-          <button className="btn btn-success" onClick={agregar}>
-            Agregar al carrito
-          </button>
+          {!producto.es_portada && (
+            <button className="btn btn-success" onClick={agregar}>
+              Agregar al carrito
+            </button>
+          )}
         </div>
       </div>
     </div>
